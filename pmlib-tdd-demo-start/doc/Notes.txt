@@ -1,0 +1,11 @@
+1. Skapa MovieListTest
+
+2. Första test: emptyMovieCollectionShouldHaveSizeZero
+
+3. Implementera size, returnera 0
+
+4. Andra test: smallCollectionShouldCountNumberOfMovies
+
+5. Implementera add, lista av titles
+
+6. Returnera size av lista
