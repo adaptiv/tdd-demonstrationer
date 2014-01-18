@@ -1,11 +1,11 @@
 1. Skapa MovieListTest
 
-2. F�rsta test: emptyMovieCollectionShouldHaveSizeZero
+2. Första test: emptyMovieListHasSizeZero
 
 3. Implementera size, returnera 0
 
-4. Andra test: smallCollectionShouldCountNumberOfMovies
+4. Andra test: oneMovieListHasSizeOne
 
-5. Implementera add, lista av titles
+5. Implementera ny konstruktor, lägg till lista av titles
 
 6. Returnera size av lista
