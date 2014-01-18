@@ -11,6 +11,19 @@ public class MovieList {
     private List<String> titles = new ArrayList<String>();
 
     /**
+     * Creates an empty movie collection.
+     */
+    public MovieList() {}
+
+    MovieList(String title) {
+        titles.add(title);
+    }
+
+    MovieList(List<String> initial) {
+        titles.addAll(initial);
+    }
+
+    /**
      * Determines the number of movies in the collection.
      *
      * @return number of registered movies
@@ -18,14 +31,4 @@ public class MovieList {
     public int size() {
         return titles.size();
     }
-
-    /**
-     * Adds a movie title to library of titles.
-     * 
-     * @param title movie title to add
-     */
-    public void add(String title) {
-        titles.add(title);
-    }
-
 }
