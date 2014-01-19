@@ -1,32 +1,29 @@
 1. Skapa testklass MovieListWhenSavingMovie.
 
-2. Första test: shouldPersistNewMovie.
+2. Skapa första test: shouldPersistNewMovie.
    Vi vill att movieList ska spara en film direkt den läggs till.
-
-3. Skapa en MovieList.
-   Skapa en add-metod i MovieList.
-   Skapa klass Movie och instans Alien att lägga till.
-   Men hur ska den spara?
-   
-4. Importera statiskt org.mockito.Mockito.*
-   Mocka MovieDao-interface
-   Skapa interface MovieDao med metoden save.
+   Assert: verify(movieDao).save(movie)
+   Skapa en mockad MovieDao.class (interface). Skapa övrigt som behövs.
+   Act: movieList.add(movie).
    Kör testet (FAIL).
 
-5. Implementera add i MovieList som lägger till filmen i sin lista och sparar via DAO.
+3. Komplettera add-metoden i MovieList att spara via sin nya DAO.
+   Lägg till beroendet till DAO i konstruktorn.
    Kör testet (OK).
 
-6. Nytt test: shouldRejectExistingMovie
+4. Nytt test: shouldRejectExistingMovie
    Vi vill att MovieList inte ska acceptera en film som redan finns i registret.
 
-7. Samma setup som tidigare test men lägg till verify(mock).exists(movie).
+5. Samma setup som tidigare test men lägg till verify(mock).exists(movie).
+   Skapa en existsmetod i interfacet.
+   Stubba existsmetoden att returnera true om den anropas med movie.
    Verifiera också att inget save sker med verifyNoMoreInteractions.
    Kör testet (FAIL).
 
-8. Implementera en koll i add i MovieList att den bara läggs till om den inte finns.
+6. Implementera en koll i add i MovieList att den bara läggs till om den inte finns.
    Kör testet (OK).
 
-9. Refaktorisera setup i testklassen.
+7. Refaktorisera setup i testklassen.
    Skapandet av Movie, MovieList och mocken kan göras i Before.
    Kör testet (OK).
  
