@@ -16,26 +16,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library name="junit.jar">
-        <CLASSES>
-          <root url="file:///Applications/Systemutveckling/eclipse/plugins/org.junit4_4.3.1/junit.jar" />
-        </CLASSES>
-        <JAVADOC>
-          <root url="http://www.junit.org/junit/javadoc/4.3" />
-        </JAVADOC>
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar://$APPLICATION_HOME_DIR$/lib/junit-4.10.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="junit:junit:4.11" level="project" />
   </component>
 </module>
 

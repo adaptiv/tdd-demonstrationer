@@ -4,18 +4,21 @@ import se.tddcourse.pmlib.scenarios.steps.MovieList;
 
 public class MovieListController {
 
-	public MovieListController(MovieList movieList) {
-		// TODO Auto-generated constructor stub
-	}
+    private MovieList movieList;
+    private ConsoleListView view;
+
+    public MovieListController(MovieList movieList) {
+        this.movieList = movieList;
+    }
 
 	public void list() {
-		// TODO Auto-generated method stub
-		
+		if (movieList.isEmpty()) {
+            view.output("Your collection is empty.");
+        }
 	}
 
 	public void setListView(ConsoleListView view) {
-		// TODO Auto-generated method stub
-		
-	}
+        this.view = view;
+    }
 
 }

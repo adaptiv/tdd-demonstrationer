@@ -13,7 +13,6 @@ import se.tddcourse.pmlib.MovieListController;
 
 public class MovieCollectionSteps extends Steps {
 
-		
 	private String result;
 	private MovieListController controller;
 	private ConsoleListView view;
@@ -21,6 +20,7 @@ public class MovieCollectionSteps extends Steps {
 
 	@Given("the collection is empty")
 	public void createNewCollection() {
+        movieList = new MovieList();
 		controller = new MovieListController(movieList);
 		view = new ConsoleListView();
 		controller.setListView(view);
@@ -36,6 +36,5 @@ public class MovieCollectionSteps extends Steps {
 		result = view.render();
 		ensureThat(result, equalTo(listing));
 	}
-
 
 }
