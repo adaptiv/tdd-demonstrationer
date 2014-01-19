@@ -2,6 +2,7 @@
 <module type="JAVA_MODULE" version="4">
   <component name="EclipseModuleManager">
     <libelement value="jar://$MODULE_DIR$/lib/mockito-all-1.6.jar!/" />
+    <libelement value="file://$MODULE_DIR$/lib/mockito-all-1.6.jar" />
     <src_description expected_position="0">
       <src_folder value="file://$MODULE_DIR$/src" expected_position="0" />
       <src_folder value="file://$MODULE_DIR$/test" expected_position="1" />
@@ -16,13 +17,24 @@
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="inheritedJdk" />
-    <orderEntry type="module-library">
-      <library name="mockito-all-1.6.jar">
+    <orderEntry type="module-library" scope="TEST">
+      <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/mockito-all-1.6.jar!/" />
+          <root url="jar://$APPLICATION_HOME_DIR$/lib/junit-4.10.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/mockito-all-1.9.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/lib/mockito-all-1.9.5.jar!/" />
+        </SOURCES>
       </library>
     </orderEntry>
   </component>
