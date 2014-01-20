@@ -10,9 +10,6 @@ public class MovieListController {
     }
 
 	public void list() {
-		if (movieList.isEmpty()) {
-            view.output("Your collection is empty.");
-        }
 	}
 
 	public void setListView(ConsoleListView view) {

@@ -8,13 +8,7 @@ public class ConsoleListView {
     private List<String> lines = new ArrayList<String>();
 
     public String render() {
-        StringBuilder builder = new StringBuilder();
-
-        for (String line : lines) {
-            builder.append(line);
-        }
-
-		return builder.toString();
+		return "";
 	}
 
     public void output(String text) {

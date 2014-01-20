@@ -12,7 +12,6 @@ import se.tddcourse.pmlib.MovieListController;
 
 public class EmptyMovieLibrarySteps {
 
-	private String result;
 	private MovieListController controller;
 	private ConsoleListView view;
 	private MovieList movieList;
@@ -32,8 +31,7 @@ public class EmptyMovieLibrarySteps {
 	
 	@Then("ser listan av filmer ut så här: \"([^\"]*)\"$")
 	public void compareList(String listing) {
-		result = view.render();
-		assertThat(result, equalTo(listing));
+        assertThat(view.render(), equalTo(listing));
 	}
 
 }
