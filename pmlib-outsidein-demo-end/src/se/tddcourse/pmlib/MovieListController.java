@@ -1,7 +1,5 @@
 package se.tddcourse.pmlib;
 
-import se.tddcourse.pmlib.scenarios.steps.MovieList;
-
 public class MovieListController {
 
 	public MovieListController(MovieList movieList) {
