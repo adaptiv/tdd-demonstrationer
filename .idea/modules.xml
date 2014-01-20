@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/pmlib-dry-demo-end/pmlib-dry-demo-end.iml" filepath="$PROJECT_DIR$/pmlib-dry-demo-end/pmlib-dry-demo-end.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pmlib-dry-demo-start/pmlib-dry-demo-start.iml" filepath="$PROJECT_DIR$/pmlib-dry-demo-start/pmlib-dry-demo-start.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pmlib-examples-demo-end/pmlib-examples-demo-end.iml" filepath="$PROJECT_DIR$/pmlib-examples-demo-end/pmlib-examples-demo-end.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pmlib-examples-demo-start/pmlib-examples-demo-start.iml" filepath="$PROJECT_DIR$/pmlib-examples-demo-start/pmlib-examples-demo-start.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pmlib-legacy-demo/pmlib-legacy-demo.iml" filepath="$PROJECT_DIR$/pmlib-legacy-demo/pmlib-legacy-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pmlib-mockito-demo-end/pmlib-mockito-demo-end.iml" filepath="$PROJECT_DIR$/pmlib-mockito-demo-end/pmlib-mockito-demo-end.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pmlib-mockito-demo-start/pmlib-mockito-demo-start.iml" filepath="$PROJECT_DIR$/pmlib-mockito-demo-start/pmlib-mockito-demo-start.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pmlib-outsidein-demo-end/pmlib-outsidein-demo-end.iml" filepath="$PROJECT_DIR$/pmlib-outsidein-demo-end/pmlib-outsidein-demo-end.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pmlib-outsidein-demo-start/pmlib-outsidein-demo-start.iml" filepath="$PROJECT_DIR$/pmlib-outsidein-demo-start/pmlib-outsidein-demo-start.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pmlib-tdd-demo-end/pmlib-tdd-demo-end.iml" filepath="$PROJECT_DIR$/pmlib-tdd-demo-end/pmlib-tdd-demo-end.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pmlib-tdd-demo-start/pmlib-tdd-demo-start.iml" filepath="$PROJECT_DIR$/pmlib-tdd-demo-start/pmlib-tdd-demo-start.iml" />
+    </modules>
+  </component>
+</project>
+
