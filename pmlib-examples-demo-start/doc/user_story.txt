@@ -1,4 +1,5 @@
-Story: 
+TODO: Översätt!!!
+Story:
 As a movie collector
 I can list all movies in my collection
 in order to get an overview of the collection
