@@ -12,7 +12,6 @@ import se.tddcourse.pmlib.MovieListController;
 
 public class EmptyMovieLibrarySteps {
 
-		
 	private String result;
 	private MovieListController controller;
 	private ConsoleListView view;
@@ -20,6 +19,7 @@ public class EmptyMovieLibrarySteps {
 
 	@Given("att filmbiblioteket är tomt")
 	public void createNewCollection() {
+        movieList = new MovieList();
 		controller = new MovieListController(movieList);
 		view = new ConsoleListView();
 		controller.setListView(view);
@@ -35,6 +35,5 @@ public class EmptyMovieLibrarySteps {
 		result = view.render();
 		assertThat(result, equalTo(listing));
 	}
-
 
 }
