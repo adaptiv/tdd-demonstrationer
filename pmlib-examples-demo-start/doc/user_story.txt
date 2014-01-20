@@ -1,11 +1,9 @@
-TODO: Översätt!!!
 Story:
-As a movie collector
-I can list all movies in my collection
-in order to get an overview of the collection
+  Som en filmsamlare
+  Kan jag lista alla filmer i min filmbibliotek
+  För att få en översikt av samlingen.
 
 Scenario:
-Given the collection is empty
-When I list the movies
-Then the list of movies should look like:
-"Your collection is empty."
+  Givet att filmbiblioteket är tomt
+  När jag listar filmerna
+  Så ser listan av filmer ut så här: "Ditt filmbibliotek är tomt."
