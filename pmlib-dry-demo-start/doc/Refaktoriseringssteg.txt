@@ -10,84 +10,96 @@ REFAKTORISERINGEN I STORA DRAG
    Bryt ut och flytta upp en getFieldSize till superklass.
 5. Duplicering i algoritm för utskrivning av fält.
    Generalisera parametervärden till en lista. Flytta upp generell kod.
-6. Snygga till: Namngivning, Compose method, m.m.
+6. Analys av resultat. Snygga till: Namngivning, Compose method, m.m.
 
 ---------------------------------------------------------------------------------------
 
 REFAKTORISERINGEN I DETALJ
 
-1. LoginCmd, observation: Skriver ut ett fält och sedan terminerar med null-tecken.
-   Skapa writeField-metod som skriver ut ett nullterminerat fält.
-   Ersätt båda utskrifter av fält i LoginCmd.
+1.a  LoginCmd, observation: Skriver ut ett fält och sedan terminerar med null-tecken.
+   Skapa *writeField*-metod som skriver ut ett nullterminerat fält.
+   Ersätt båda utskrifterna av fält i LoginCmd.
    Kör alla tester.
 
-2. För att kunna använda nya metoden i AddMovieCmd måste vi skapa en gemensam superklass.
-   Skapa Command, flytta upp writeField med Extract superclass, gör metoden protected.
+1.b  För att kunna använda nya metoden i AddMovieCmd måste vi skapa en gemensam superklass.
+   Skapa *Command*, flytta upp writeField med Extract superclass, gör metoden protected.
    Låt AddMovieCmd ärva från Command. Ersätt alla utskrifter av fält i AddMovidCmd.
    Kör alla tester.
 
-3. Observation: Metoden write ser likadan ut i båda kommandoklasserna, förutom utskriften av fälten.
+---
+
+2.a  Observation: Metoden write ser likadan ut i båda kommandoklasserna, förutom utskriften av fälten.
    Extrahera det som skiljer till en writeBody-metod i båda kommandoklasserna.
    Kör alla tester.
 
-4. Observation: Metoden write använder fortfarande statiskt data från klassen.
+2.b  Observation: Metoden write använder fortfarande statiskt data från klassen.
    Flytta upp data som är lika till Command med Pull up member.
    Kör alla tester.
    
-5. Fältet commandChar återstår, vilket är olika i respektive kommandoklass.
-   LoginCmd: Börja med att kapsla in fältet med Encapsulate field till getCommandChar.
+2.c  Fältet commandChar återstår, vilket är olika i respektive kommandoklass.
+   LoginCmd: Börja med att kapsla in fältet med Encapsulate field till *getCommandChar*.
    Tag bort fältet och lägg i stället in kommandotecknet i den nya metoden (inline).
    Kör alla tester.
 
-6. Skapa en abstrakt getter getCommandChar i superklassen som motsvarar getCommandChar.
+2.d  Skapa en abstrakt getter getCommandChar i superklassen som motsvarar getCommandChar.
    För att kunna göra detta måste klassen göras abstrakt också.
    LoginCmd: Gör om getCommandChar till en instansmetod (ej statisk) och protected.
    AddMovieCmd: Gör om fältet till en metod getCommandChar på motsvarande sätt.
    Kör alla tester.
 
-7. Nu vill vi flytta upp metoden write. För att kunna göra det måste metoderna
-   getSize och writeBody göras protected i subklasserna och motsvarande abstrakta
-   metoder måste finnas i Command.
+2.e  Nu vill vi flytta upp metoden write. För att kunna göra det måste metoderna
+   getSize och writeBody göras protected i subklasserna.
+   Skapa motsvarande abstrakta metoder i Command.
    Flytta upp write med Pull up member.
    Kör alla tester.
 
-8. Observation: getSize-metoderna är lika så när som beräkningen av fältlängderna.
-   Bryt ut ny metod getBodySize i varje subklass, gör den protected.
+---
+
+3.a  Observation: getSize-metoderna är lika så när som beräkningen av fältlängderna.
+   Bryt ut ny metod *getBodySize* i varje subklass, gör den protected.
    Ta bort abstrakt getSize i Command.
    Flytta upp getSize till Command. Skapa en abstrakt protected getBodySize.
    Kör alla tester.
 
-9. Observation: Konstruktorn i AddMovieCmd ligger inte Först.
+3.b Observation: Konstruktorn i AddMovieCmd ligger inte Först.
    Ändra (generellt) ordningen på metoderna i logisk ordning.
    Kör alla tester.
 
-10. Observation: Uppenbar duplicering i respektive getBodySize (+ 1).
-   LoginCmd: Bryt ut metoden getFieldSize(field), gör protected.
+---
+
+4.a  Observation: Uppenbar duplicering i respektive getBodySize (+ 1).
+   LoginCmd: Bryt ut metoden *getFieldSize(field)*, gör protected.
    Använd den i getBodySize.
+
+4.b  Flytta upp getFieldSize till Command och använd överallt
    Flytta upp den till Command.
    Använd den i AddMovieCmd.
    Kör alla tester.
 
-11. Observation: Båda klasser tar en lista av parametrar, beräknar storlek och skriver ut dem.
-   Generalisera fälten till en lista av strängar i superklassen Command.
-   LogniCmd, skapa lista av strängar fields.
+---
+
+5.a  Observation: Båda klasser tar en lista av parametrar, beräknar storlek och skriver ut dem.
+   Generalisera fälten till en lista av strängar.
+   LoginCmd, skapa lista av strängar fields.
    LoginCmd, konstruktor: Ersätt tilldelning av fält med addering till listan.
    LoginCmd, getBodySize: Ersätt med for-loop över fields, addera till resultat i loopen.
    LoginCmd, writeBody: Ersätt med for-loop över fields, skriv ut fält i loopen.
    Ta bort alla instansvariablerna (utom fields).
    Kör alla tester.
 
-12. Lyft upp fields, getBodySize och writeBody till superklassen Command.
+5.a  Lyft upp fields, getBodySize och writeBody till superklassen Command.
    AddMovieCmd: Gör motsvarande ändring i konstruktorn.
    Tag bort fält och metoder som inte behövs.
    Kör alla tester.
 
-13. Städa upp i Command.
+5.b  Städa upp i Command.
    Ändra ordning på metoder.
    Gör metoder som inte används i subklasserna privata.
    Kör alla tester.
 
-14. Observation: Vära kommandoklasser är väldigt små.
+---
+
+6.a  Observation: Vära kommandoklasser är väldigt små.
    Alt 1: Ersätt med statisk metod i Command För att skicka kommandon.
           Command.send(stream, cmdChar, argumentsList);
           Nackdel: Mycket jobb För klient som ska använda.
@@ -96,17 +108,13 @@ REFAKTORISERINGEN I DETALJ
           Möjligt. Men nackdel: Tvingar alla klienter att ändra sig.
    Alt 3: Behåll som det är nu.
  
- 15. Spela ut några scenarior, Före och efter:
-   - Lägga till ett nytt kommando: duplicering vs subklassning.
-   - Skicka kommandon med annat än strängar: redan löst (minutes).
-   - Kommandon av annat slag, t ex nästlade: Ersätt writeBody i subklass.
+   Spela ut några scenarior, Före och efter:
+     - Lägga till ett nytt kommando: duplicering vs subklassning.
+     - Skicka kommandon med annat än strängar: redan löst (minutes).
+     - Kommandon av annat slag, t ex nästlade: Ersätt writeBody i subklass.
    Vi har uppnått ortogonalitet, dvs oberoende. En "ratt" för var sak.
  
- 16. Observation: Mest mekaniskt, men designen blev snygg.
-   Chock: Vacker design kan "uppstå", i stort sett bara genom att ta bort duplicering.
-   DRY är essentiellt för god design.
-
- 17. Vad återstår som inte DRY rår på?
+ 6.b  Vad återstår som inte DRY rår på?
    Namngivning: Byt namn på klasserna till LoginCommand och AddMovieCommand.
    Namngivning: header och footer borde skrivas med versaler.
    Composed Method: Skapa metoderna writeHeader och writeFooter i Command.
@@ -114,4 +122,7 @@ REFAKTORISERINGEN I DETALJ
    Skapa konstanter för konstanta värden, t.ex. TERMINATOR_CHAR_LENGTH
    Dokumentation i form av javadoc.
    Kör alla tester.
- 
+
+ 6.c  Observation: Mest mekaniskt, men designen blev snygg.
+   Chock: Vacker design kan "uppstå", i stort sett bara genom att ta bort duplicering.
+   DRY är essentiellt för god design.
