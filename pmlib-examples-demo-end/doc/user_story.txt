@@ -3,7 +3,11 @@ Story:
   Kan jag lista alla filmer i min filmbibliotek
   För att få en översikt av samlingen.
 
-Scenario:
-  Givet att filmbiblioteket är tomt
-  När jag listar filmerna
-  Så ser listan av filmer ut så här: "Ditt filmbibliotek är tomt."
+  Acceptanskriteria:
+    Givet att filmbiblioteket är tomt
+    När jag listar filmerna
+    Så ser ett meddelande om att filmbiblioteket är tomt
+
+    Givet att filmbiblioteket innehåller några filmer
+    När jag listar filmerna
+    Så ser jag filmernas titlar i en lista
